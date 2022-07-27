@@ -12,10 +12,10 @@ import { getFirestore } from 'firebase/firestore';
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,  
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTHDO_MAIN,
-    preojectId: process.env.NEXT_PUBLIC_FIREBASE_PRJECT_ID
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
 };
 
-const app = getApps.length > 0 ? getApp() : initializeApp(firebaseConfig)
+const app = !getApps().length ? initializeApp( firebaseConfig ) : getApp()
 const dataBase = getFirestore(app)
 
 export { dataBase }
